@@ -1,0 +1,34 @@
+✅ Option 2: Import specific content using nbformat (advanced but controlled)
+If you want to reuse only certain cells from Notebook A in Notebook B, try this approach.
+
+🔹 In notebook_b.ipynb:
+    import nbformat
+    from IPython import get_ipython
+    
+    # Load and parse the notebook
+    with open("notebook_a.ipynb") as f:
+        nb = nbformat.read(f, as_version=4)
+
+    # Execute each code cell
+    ip = get_ipython()
+    for cell in nb.cells:
+        if cell.cell_type == 'code':
+            ip.run_cell(cell.source)
+
+This brings all code from notebook_a.ipynb into your current notebook
+You can modify it to run only specific cells
+No output from cells is preserved, only code is executed
+
+
+Things to Keep in Mind
+    Both notebooks need to be in the same directory unless you specify the path.
+    Avoid having name clashes (functions or variables with the same names).
+    Always execute notebook_a.ipynb before depending on its code.
+
+
+
+🔚 Summary
+Method	What it does	Good for
+%run notebook_a.ipynb	Executes whole notebook A in notebook B	Quick reuse of all content
+nbformat + IPython	Imports notebook A’s code programmatically	More control (advanced users)
+

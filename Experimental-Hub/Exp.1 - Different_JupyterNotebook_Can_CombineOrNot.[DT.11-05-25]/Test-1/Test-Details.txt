@@ -1,0 +1,17 @@
+🔸 1. Convert the first notebook into a Python module
+Best and cleanest way
+
+Save reusable functions/classes from Notebook A (notebook_a.ipynb) into a .py file:
+    # Inside notebook_a.ipynb
+    def say_hello():
+        print("Hello from notebook A!")
+
+
+Export it:
+In Jupyter: File → Download as → Python (.py)
+Or manually copy and save as notebook_a_module.py
+
+
+Then in your second notebook:
+    from notebook_a_module import say_hello
+    say_hello()

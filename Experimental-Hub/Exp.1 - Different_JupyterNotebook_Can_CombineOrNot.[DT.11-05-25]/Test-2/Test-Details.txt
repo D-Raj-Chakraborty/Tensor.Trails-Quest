@@ -1,0 +1,14 @@
+🔸 3. Use importnb (a third-party tool)
+This allows you to import a Jupyter Notebook like a Python module.
+
+Install it: (If not install)
+    pip install importnb
+
+Then in your second notebook:
+    from importnb import Notebook
+    
+    with Notebook():
+        import notebook_a  # assumes 'notebook_a.ipynb' exists
+        notebook_a.say_hello()
+
+Note:Slightly heavier, and used when you're working within many notebooks as modules.
